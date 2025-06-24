@@ -128,6 +128,8 @@ const translations = {
         "404_page": "404 Page",
         "contact_us": "Contact Us",
         "get_started": "Get Started",
+        "follow_us": "Follow Us",
+        "mon_fri": "Mon - Fri, 8:00 - 18:00",
         "opening_hour": "Opening Hour",
         "call_us": "Call Us",
         "email_us": "Email Us",
@@ -174,6 +176,8 @@ const translations = {
         "404_page": "Página 404",
         "contact_us": "Contáctanos",
         "get_started": "Empezar",
+        "follow_us": "Síguenos",
+        "mon_fri": "Lun - Vie, 8:00 - 18:00",
         "opening_hour": "Horario de Apertura",
         "call_us": "Llámanos",
         "email_us": "Escríbenos",
@@ -210,9 +214,23 @@ const translations = {
     }
 };
 
+function getCurrentLanguage() {
+    // 1. Verificar parámetro en URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const langParam = urlParams.get('lang');
+    if (langParam && translations[langParam]) return langParam;
+    
+    // 2. Verificar localStorage
+    const savedLang = localStorage.getItem('selectedLanguage');
+    if (savedLang && translations[savedLang]) return savedLang;
+    
+    // 3. Usar inglés por defecto
+    return 'en';
+}
+
 // Función para aplicar traducciones
 function applyTranslations(lang) {
-    // Actualizar textos en elementos específicos
+    // Actualizar textos
     document.querySelectorAll('[data-translate]').forEach(element => {
         const key = element.getAttribute('data-translate');
         if (translations[lang][key]) {
@@ -220,27 +238,58 @@ function applyTranslations(lang) {
         }
     });
     
-    // Actualizar el selector de idioma
-    document.getElementById('languageSelect').value = lang;
+    // Actualizar selector
+    const selector = document.getElementById('languageSelect');
+    if (selector) selector.value = lang;
     
     // Guardar preferencia
-    localStorage.setItem('language', lang);
+    localStorage.setItem('selectedLanguage', lang);
+    
+    // Actualizar atributo lang del documento
+    document.documentElement.lang = lang;
 }
 
-// Inicializar traducciones
-function initTranslation() {
-    // Obtener idioma guardado o usar inglés por defecto
-    const savedLang = localStorage.getItem('language') || 'en';
-    applyTranslations(savedLang);
+// Función para cambiar idioma
+function changeLanguage(newLang) {
+    if (!translations[newLang]) return;
     
-    // Configurar evento para cambiar idioma
-    document.getElementById('languageSelect').addEventListener('change', function() {
-        applyTranslations(this.value);
-    });
+    // Actualizar URL sin recargar si ya tiene parámetros
+    const url = new URL(window.location);
+    url.searchParams.set('lang', newLang);
+    window.history.replaceState({}, '', url);
+    
+    // Aplicar traducciones
+    applyTranslations(newLang);
+}
+
+// Inicializar sistema de traducción
+function initTranslationSystem() {
+    const lang = getCurrentLanguage();
+    
+    // Configurar selector
+    const selector = document.getElementById('languageSelect');
+    if (selector) {
+        selector.value = lang;
+        selector.addEventListener('change', function() {
+            changeLanguage(this.value);
+        });
+    }
+    
+    // Aplicar traducciones
+    applyTranslations(lang);
 }
 
 // Iniciar cuando el DOM esté listo
-document.addEventListener('DOMContentLoaded', initTranslation);
+document.addEventListener('DOMContentLoaded', initTranslationSystem);
+
+// Sincronizar entre pestañas
+window.addEventListener('storage', (event) => {
+    if (event.key === 'selectedLanguage') {
+        applyTranslations(event.newValue);
+        const selector = document.getElementById('languageSelect');
+        if (selector) selector.value = event.newValue;
+    }
+});
 
 // =====================
 // Sistema de Traducción de Placeholders

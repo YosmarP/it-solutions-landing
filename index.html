@@ -48,14 +48,20 @@
         <div class="row gx-0 align-items-center d-none d-lg-flex">
             <div class="col-lg-6 px-5 text-start">
                 <ol class="breadcrumb mb-0">
-                    <li class="breadcrumb-item"><a class="small text-secondary" href="#">Home</a></li>
-                    <li class="breadcrumb-item"><a class="small text-secondary" href="#">Career</a></li>
-                    <li class="breadcrumb-item"><a class="small text-secondary" href="#">Terms</a></li>
-                    <li class="breadcrumb-item"><a class="small text-secondary" href="#">Privacy</a></li>
+                    <li class="breadcrumb-item"><a class="small text-secondary" href="#" data-translate="home">Home</a></li>
+                    <li class="breadcrumb-item"><a class="small text-secondary" href="#" data-translate="career">Career</a></li>
+                    <li class="breadcrumb-item"><a class="small text-secondary" href="#" data-translate="terms">Terms</a></li>
+                    <li class="breadcrumb-item"><a class="small text-secondary" href="#" data-translate="privacy">Privacy</a></li>
                 </ol>
             </div>
             <div class="col-lg-6 px-5 text-end">
-                <small>Follow us:</small>
+                <div class="language-selector" style="display: inline-block; margin-right: 15px;">
+                    <select id="languageSelect" class="border-0 bg-light text-dark">
+                        <option value="en">🇬🇧 English</option>
+                        <option value="es">🇪🇸 Español</option>
+                    </select>
+                </div>
+                <small data-translate="follow_us">Follow us:</small>
                 <div class="h-100 d-inline-flex align-items-center">
                     <a class="btn-square text-primary border-end rounded-0" href="https://www.facebook.com/groups/freewebsitecode"><i class="fab fa-facebook-f"></i></a>
                     <a class="btn-square text-primary border-end rounded-0" href="https://freewebsitecreate.net/"><i class="fab fa-twitter"></i></a>
@@ -85,8 +91,8 @@
                                 <i class="far fa-clock text-primary"></i>
                             </div>
                             <div class="ps-3">
-                                <p class="mb-2">Opening Hour</p>
-                                <h6 class="mb-0">Mon - Fri, 8:00 - 9:00</h6>
+                                <p class="mb-2" data-translate="opening_hour">Opening Hour</p>
+                                <h6 class="mb-0" data-translate="opening_hour_time"> Mon - Fri, 8:00 - 9:00</h6>
                             </div>
                         </div>
                     </div>
@@ -96,7 +102,7 @@
                                 <i class="fa fa-phone text-primary"></i>
                             </div>
                             <div class="ps-3">
-                                <p class="mb-2">Call Us</p>
+                                <p class="mb-2" data-translate="call_us">Call Us</p>
                                 <h6 class="mb-0">+012 345 6789</h6>
                             </div>
                         </div>
@@ -107,7 +113,7 @@
                                 <i class="far fa-envelope text-primary"></i>
                             </div>
                             <div class="ps-3">
-                                <p class="mb-2">Email Us</p>
+                                <p class="mb-2" data-translate="email_us">Email Us</p>
                                 <h6 class="mb-0">info@example.com</h6>
                             </div>
                         </div>
@@ -119,30 +125,29 @@
     <!-- Brand & Contact End -->
 
 
-    <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-primary navbar-dark sticky-top py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
-        <a href="#" class="navbar-brand ms-3 d-lg-none">MENU</a>
+        <a href="#" class="navbar-brand ms-3 d-lg-none" data-translate="menu">MENU</a>
         <button type="button" class="navbar-toggler me-3" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav me-auto p-3 p-lg-0">
-                <a href="index.html" class="nav-item nav-link active">Home</a>
-                <a href="about.html" class="nav-item nav-link">About Us</a>
-                <a href="service.html" class="nav-item nav-link">Services</a>
-                <a href="project.html" class="nav-item nav-link">Projects</a>
+                <a href="index.html" class="nav-item nav-link active " data-translate="home">Home</a>
+                <a href="about.html" class="nav-item nav-link" data-translate="about_us">About Us</a>
+                <a href="service.html" class="nav-item nav-link" data-translate="services">Services</a>
+                <a href="project.html" class="nav-item nav-link" data-translate="projects">Projects</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                     <div class="dropdown-menu border-0 rounded-0 rounded-bottom m-0">
                         <a href="feature.html" class="dropdown-item">Features</a>
-                        <a href="team.html" class="dropdown-item">Our Team</a>
-                        <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                        <a href="404.html" class="dropdown-item">404 Page</a>
+                        <a href="team.html" class="dropdown-item" data-translate="our_team">Our Team</a>
+                        <a href="testimonial.html" class="dropdown-item" data-translate="testimonial">Testimonial</a>
+                        <a href="404.html" class="dropdown-item" data-translate="404_page">404 Page</a>
                     </div>
                 </div>
-                <a href="contact.html" class="nav-item nav-link">Contact Us</a>
+                <a href="contact.html" class="nav-item nav-link" data-translate="contact_us">Contact Us</a>
             </div>
-            <a href="#" class="btn btn-sm btn-light rounded-pill py-2 px-4 d-none d-lg-block">Get Started</a>
+            <a href="#" class="btn btn-sm btn-light rounded-pill py-2 px-4 d-none d-lg-block" data-translate="get_started">Get Started</a>
         </div>
     </nav>
     <!-- Navbar End -->
