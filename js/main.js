@@ -201,6 +201,8 @@ const translations = {
         "services_description": "We Focus On Making The Best In All Sectors",
         "ppc_advertising": "PPC Advertising",
         "what_our_clients_say": "What Our Clients Say!",
+        "about_us_description": " As part of our identity, the icon subtly integrates the binary for “simple,” reflecting our purpose to offer streamlined digital experiences—an element that invites people to discover what EasyByte is all about.",
+        "about_us_description_2": "And we do this by combining clean code, intentional design, and a genuine curiosity to create tools that make people’s digital lives easier and more intuitive."
     },
     es: {
         "home": "Inicio",
@@ -287,6 +289,8 @@ const translations = {
         "services_description": "Nos enfocamos en hacer lo mejor en todos los sectores",
         "ppc_advertising": "Publicidad PPC",
         "what_our_clients_say": "¡Lo que dicen nuestros clientes!",
+        "about_us_description": "Como parte de nuestra identidad, el ícono integra sutilmente el binario para “simple”, reflejando nuestro propósito de ofrecer experiencias digitales simplificadas, un elemento que invita a las personas a descubrir de qué se trata EasyByte.",
+        "about_us_description_2": "Y lo hacemos combinando código limpio, diseño intencionado y una genuina curiosidad por crear herramientas que faciliten y hagan más intuitivas las vidas digitales de las personas."
     }
 };
 
